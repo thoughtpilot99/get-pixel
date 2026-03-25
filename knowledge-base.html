@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Knowledge Base — Complete Documentation</title>
+  <meta name="description" content="Comprehensive documentation for Pixel AI Marketing Agent. Learn about workflows, audience targeting, creative generation, campaign management, analytics, integrations, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #4834D1;
+      --primary-light: #635DFF;
+      --blue: #4879FF;
+      --cyan: #00B3FF;
+      --cyan-bright: #00EAFF;
+      --flame-orange: #FF7A00;
+      --dark-purple: #3255B7;
+
+      --bg: #ffffff;
+      --bg-soft: #f9f8ff;
+      --bg-muted: #f5f4ff;
+      --bg-warm: #f0eeff;
+      --surface: #ffffff;
+      --border: #e8e6f9;
+      --border-hover: #d1cef0;
+      --text: #0a0a0a;
+      --text-secondary: #52525b;
+      --text-muted: #6b7280;
+
+      --gradient-brand: linear-gradient(135deg, var(--primary) 0%, var(--blue) 40%, var(--cyan) 70%, var(--cyan-bright) 100%);
+      --gradient-flame: linear-gradient(135deg, var(--primary) 0%, var(--cyan) 50%, var(--flame-orange) 100%);
+      --gradient-cta: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      --primary-dim: rgba(72, 52, 209, 0.08);
+      --primary-glow: rgba(72, 52, 209, 0.18);
+      --flame-dim: rgba(255, 122, 0, 0.08);
+
+      --radius: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 24px;
+      --max-w: 1200px;
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text);
+    }
+
+    .nav-logo img { width: 18px; height: 22px; transition: transform 0.3s ease; image-rendering: pixelated; }
+    .nav-logo:hover img { transform: scale(1.1) rotate(-3deg); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--primary); font-weight: 600; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 50px;
+      box-shadow: 0 2px 12px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: var(--primary-light);
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    .nav-cta {
+      padding: 8px 20px !important;
+      font-size: 0.875rem !important;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      background: #0a0a0a !important;
+      color: #fff !important;
+      box-shadow: none !important;
+    }
+
+    .nav-cta:hover {
+      background: #1a1a1a !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ── HERO KB ── */
+    .kb-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+      background: linear-gradient(160deg, var(--bg-soft) 0%, var(--bg) 55%, var(--bg-warm) 100%);
+      position: relative;
+    }
+
+    .kb-hero::before {
+      content: '';
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse at 50% 60%,
+        rgba(0, 234, 255, 0.08) 0%,
+        rgba(72, 121, 255, 0.06) 30%,
+        rgba(72, 52, 209, 0.04) 55%,
+        transparent 80%);
+      pointer-events: none;
+    }
+
+    .kb-hero > * { position: relative; z-index: 1; }
+
+    .kb-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+
+    .kb-hero h1 .gradient-text {
+      background: var(--gradient-flame);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .kb-hero p {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    /* ── SEARCH ── */
+    .kb-search {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .kb-search input {
+      width: 100%;
+      padding: 14px 20px 14px 48px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .kb-search input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-dim);
+    }
+
+    .kb-search svg {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    /* ── TOC GRID ── */
+    .toc-section {
+      padding: 64px 0;
+      background: var(--bg-soft);
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .toc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: all var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .toc-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(72, 52, 209, 0.06);
+    }
+
+    .toc-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(72, 52, 209, 0.03) 50%, transparent 100%);
+      transition: left 0.5s ease;
+      pointer-events: none;
+    }
+
+    .toc-card:hover::after { left: 100%; }
+
+    .toc-icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .toc-card h3 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .toc-card p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── KB CONTENT ── */
+    .kb-content {
+      padding: 80px 0;
+    }
+
+    .kb-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Sidebar */
+    .kb-sidebar {
+      position: sticky;
+      top: 88px;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 16px;
+    }
+
+    .kb-sidebar::-webkit-scrollbar { width: 3px; }
+    .kb-sidebar::-webkit-scrollbar-track { background: transparent; }
+    .kb-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    .kb-sidebar-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .kb-sidebar a {
+      display: block;
+      padding: 7px 12px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      transition: all var(--transition);
+      line-height: 1.4;
+      border-left: 2px solid transparent;
+    }
+
+    .kb-sidebar a:hover {
+      color: var(--text);
+      background: var(--primary-dim);
+      border-left-color: var(--primary);
+    }
+
+    .kb-sidebar a.active {
+      color: var(--primary);
+      background: var(--primary-dim);
+      font-weight: 600;
+      border-left-color: var(--primary);
+    }
+
+    /* Main content */
+    .kb-main {
+      min-width: 0;
+    }
+
+    .kb-section {
+      margin-bottom: 80px;
+      scroll-margin-top: 88px;
+    }
+
+    .kb-section:last-child { margin-bottom: 0; }
+
+    .kb-section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .kb-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .kb-section > p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+
+    /* Tables */
+    .kb-table-wrap {
+      overflow-x: auto;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .kb-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .kb-table th {
+      background: var(--bg-soft);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .kb-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      vertical-align: top;
+    }
+
+    .kb-table tr:last-child td { border-bottom: none; }
+
+    .kb-table tr:hover td { background: var(--bg-soft); }
+
+    .kb-table code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8125rem;
+      padding: 2px 6px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* Info cards grid */
+    .kb-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .kb-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all var(--transition);
+    }
+
+    .kb-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 4px 16px rgba(72, 52, 209, 0.04);
+    }
+
+    .kb-card h4 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .kb-card p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Subsection */
+    .kb-subsection {
+      margin-bottom: 40px;
+    }
+
+    .kb-subsection h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .kb-subsection p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    /* Phase cards */
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phase-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--gradient-brand);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .phase-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .phase-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .phase-card > p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    /* Callout */
+    .kb-callout {
+      background: var(--primary-dim);
+      border: 1px solid rgba(72, 52, 209, 0.12);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      font-size: 0.9375rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .kb-callout strong { color: var(--primary); }
+
+    .kb-callout-warning {
+      background: var(--flame-dim);
+      border-color: rgba(255, 122, 0, 0.15);
+    }
+
+    .kb-callout-warning strong { color: var(--flame-orange); }
+
+    /* Lists */
+    .kb-list {
+      padding-left: 20px;
+      margin-bottom: 24px;
+    }
+
+    .kb-list li {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .kb-list li strong { color: var(--text); }
+
+    /* Architecture diagram */
+    .kb-diagram {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+    }
+
+    .kb-diagram pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      white-space: pre;
+      margin: 0;
+    }
+
+    /* Tool badge */
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .tool-badge.core {
+      background: var(--flame-dim);
+      color: var(--flame-orange);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      background: var(--bg-soft);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--text);
+    }
+
+    .footer-brand img { width: 22px; height: 22px; image-rendering: pixelated; }
+
+    .footer-meta {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .toc-grid { grid-template-columns: repeat(2, 1fr); }
+      .kb-layout { grid-template-columns: 1fr; }
+      .kb-sidebar { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 24px;
+        gap: 8px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 10px 0; font-size: 1rem; }
+      .nav-links .nav-cta { text-align: center; margin-top: 8px; }
+      .mobile-menu-btn { display: block; }
+      nav .container { position: relative; }
+
+      .kb-hero { padding: 120px 0 48px; }
+      .kb-hero h1 { font-size: 1.75rem; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .kb-cards { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* Animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/pixel-flame.png" alt="Pixel flame" width="18" height="22" />
+        Pixel
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="index.html#testimonials">Testimonials</a></li>
+        <li><a href="knowledge-base.html" class="active">Knowledge Base</a></li>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#" class="btn btn-primary nav-cta">Start Free &rarr;</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="kb-hero">
+    <div class="container">
+      <h1>Pixel <span class="gradient-text">Knowledge Base</span></h1>
+      <p>Everything you need to understand Pixel's capabilities, workflows, tools, and guardrails. Your complete reference for building campaigns with AI.</p>
+      <div class="kb-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="kb-search-input" placeholder="Search the knowledge base..." />
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE OF CONTENTS GRID -->
+  <section class="toc-section">
+    <div class="container">
+      <div class="toc-grid">
+        <a href="#what-is-pixel" class="toc-card">
+          <div class="toc-icon">&#128293;</div>
+          <h3>What is Pixel?</h3>
+          <p>AI marketing agent overview and architecture</p>
+        </a>
+        <a href="#how-pixel-works" class="toc-card">
+          <div class="toc-icon">&#9881;</div>
+          <h3>How Pixel Works</h3>
+          <p>Conversation-driven interaction and intent system</p>
+        </a>
+        <a href="#six-phase-workflow" class="toc-card">
+          <div class="toc-icon">&#128640;</div>
+          <h3>6-Phase Workflow</h3>
+          <p>From planning to launch, step by step</p>
+        </a>
+        <a href="#channels" class="toc-card">
+          <div class="toc-icon">&#128225;</div>
+          <h3>Ad Channels</h3>
+          <p>LinkedIn, Facebook, Instagram, Google Ads</p>
+        </a>
+        <a href="#tools" class="toc-card">
+          <div class="toc-icon">&#128295;</div>
+          <h3>Tool Inventory</h3>
+          <p>59 tools across 11 categories</p>
+        </a>
+        <a href="#audiences" class="toc-card">
+          <div class="toc-icon">&#127919;</div>
+          <h3>Audience Targeting</h3>
+          <p>Firmographic, technographic, and native criteria</p>
+        </a>
+        <a href="#creative" class="toc-card">
+          <div class="toc-icon">&#127912;</div>
+          <h3>Creative & Brand</h3>
+          <p>AI creative generation and Brand DNA</p>
+        </a>
+        <a href="#campaigns" class="toc-card">
+          <div class="toc-icon">&#128203;</div>
+          <h3>Campaign Management</h3>
+          <p>Create, edit, pause, restart campaigns</p>
+        </a>
+        <a href="#offers" class="toc-card">
+          <div class="toc-icon">&#128196;</div>
+          <h3>Offer Management</h3>
+          <p>Lead Gen forms and Landing Pages</p>
+        </a>
+        <a href="#keywords" class="toc-card">
+          <div class="toc-icon">&#128273;</div>
+          <h3>Keywords (Google Ads)</h3>
+          <p>Keyword creation, negatives, and experiments</p>
+        </a>
+        <a href="#analytics" class="toc-card">
+          <div class="toc-icon">&#128200;</div>
+          <h3>Analytics & Reporting</h3>
+          <p>Performance metrics and ROI analysis</p>
+        </a>
+        <a href="#integrations" class="toc-card">
+          <div class="toc-icon">&#128279;</div>
+          <h3>Integrations</h3>
+          <p>Channel connections, CRMs, and martech</p>
+        </a>
+        <a href="#credits" class="toc-card">
+          <div class="toc-icon">&#128176;</div>
+          <h3>Credits & Budget</h3>
+          <p>Credit system, budget controls, auto-pause</p>
+        </a>
+        <a href="#ux" class="toc-card">
+          <div class="toc-icon">&#128187;</div>
+          <h3>User Experience</h3>
+          <p>Chat UI, interactive components, and features</p>
+        </a>
+        <a href="#safety" class="toc-card">
+          <div class="toc-icon">&#128737;</div>
+          <h3>Safety & Guardrails</h3>
+          <p>Safeguards, tool access control, standards</p>
+        </a>
+        <a href="#glossary" class="toc-card">
+          <div class="toc-icon">&#128214;</div>
+          <h3>Glossary</h3>
+          <p>Key terms and definitions</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="kb-content">
+    <div class="container">
+      <div class="kb-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="kb-sidebar">
+          <div class="kb-sidebar-title">On this page</div>
+          <a href="#what-is-pixel">What is Pixel?</a>
+          <a href="#how-pixel-works">How Pixel Works</a>
+          <a href="#six-phase-workflow">6-Phase Workflow</a>
+          <a href="#channels">Ad Channels</a>
+          <a href="#tools">Tool Inventory</a>
+          <a href="#audiences">Audience Targeting</a>
+          <a href="#creative">Creative & Brand</a>
+          <a href="#campaigns">Campaign Management</a>
+          <a href="#offers">Offer Management</a>
+          <a href="#keywords">Keywords (Google Ads)</a>
+          <a href="#analytics">Analytics & Reporting</a>
+          <a href="#integrations">Integrations</a>
+          <a href="#credits">Credits & Budget</a>
+          <a href="#ux">User Experience</a>
+          <a href="#safety">Safety & Guardrails</a>
+          <a href="#disabled-tools">Disabled Tools</a>
+          <a href="#glossary">Glossary</a>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="kb-main">
+
+          <!-- 1. WHAT IS PIXEL -->
+          <div class="kb-section" id="what-is-pixel">
+            <div class="kb-section-label">Section 1</div>
+            <h2>What is Pixel?</h2>
+            <p>Pixel is Metadata's AI-powered marketing agent that enables B2B marketers to plan, build, and launch multi-channel advertising campaigns through natural-language conversation. Instead of navigating the Metadata platform's menus and forms manually, users describe their campaign goals in plain English, and Pixel handles the end-to-end execution.</p>
+
+            <div class="kb-subsection">
+              <h3>Key Value Propositions</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Value</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Conversational Campaign Building</strong></td><td>Users describe what they want; Pixel builds it step by step</td></tr>
+                    <tr><td><strong>Multi-Channel Orchestration</strong></td><td>A single conversation can produce campaigns across LinkedIn, Facebook, Instagram, and Google Ads simultaneously</td></tr>
+                    <tr><td><strong>AI-Powered Creatives</strong></td><td>Generates brand-consistent ad images using the company's Brand DNA (colors, fonts, logo, messaging)</td></tr>
+                    <tr><td><strong>Intelligent Tool Selection</strong></td><td>Pixel dynamically selects the right platform tools based on the user's intent, using semantic search over 50+ available tools</td></tr>
+                    <tr><td><strong>Built on 10+ Years of Platform Maturity</strong></td><td>Every action Pixel takes goes through the same battle-tested Metadata platform APIs used by thousands of marketers</td></tr>
+                    <tr><td><strong>Guardrailed Execution</strong></td><td>Credit validation, auto-pause safeguards, and human-in-the-loop campaign launching ensure no unintended spend</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>How Pixel Fits in the Metadata Ecosystem</h3>
+              <div class="kb-diagram">
+<pre>
+&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;              User (Marketer)                  &#9474;
+&#9474;          Natural-language input                &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+                          &#9474;
+                          &#9660;
+&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;               Pixel Chat UI                   &#9474;
+&#9474;     Next.js frontend &#8212; conversation +         &#9474;
+&#9474;     component rendering                       &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+                          &#9474; SSE stream
+                          &#9660;
+&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;          Pixel AI Agent (mcp-client)           &#9474;
+&#9474;   LangGraph ReAct agent with LLM reasoning    &#9474;
+&#9474;   + tool execution                            &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+                          &#9474; MCP Protocol
+                          &#9660;
+&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;              MCP Tool Server                   &#9474;
+&#9474;  91 tools across campaigns, audiences,         &#9474;
+&#9474;  creatives, analytics, keywords, integrations  &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+                          &#9474; REST APIs
+                          &#9660;
+&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;         Metadata Platform (metadata-v2)        &#9474;
+&#9474;  10+ year mature B2B marketing platform        &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474;           Consumption Tracker                  &#9474;
+&#9474;  Credit metering, budget enforcement,          &#9474;
+&#9474;  auto-pause safeguards                         &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. HOW PIXEL WORKS -->
+          <div class="kb-section" id="how-pixel-works">
+            <div class="kb-section-label">Section 2</div>
+            <h2>How Pixel Works</h2>
+            <p>Pixel operates as a ReAct (Reasoning + Acting) agent: it reads the user's message, reasons about what steps are needed, selects the appropriate tools, executes them, observes the results, and repeats until the task is complete.</p>
+
+            <div class="kb-subsection">
+              <h3>Intent Classification</h3>
+              <p>Each user message is classified into one of three types:</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Intent</th><th>Description</th><th>Example</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Question</strong></td><td>Information requests, analysis queries</td><td>"What's the best channel for my budget?"</td></tr>
+                    <tr><td><strong>Action</strong></td><td>Task execution requests</td><td>"Create a lead gen campaign targeting CFOs"</td></tr>
+                    <tr><td><strong>Continuation</strong></td><td>Multi-turn workflow progression</td><td>"Now let's add Instagram as a channel"</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Intelligent Tool Selection</h3>
+              <p>Pixel does not load all 91 MCP server tools at once. Instead, it uses embedding-based semantic search to select the most relevant tools for each conversation turn:</p>
+              <ul class="kb-list">
+                <li><strong>Core Tools</strong> (10 tools) are always available &mdash; essential for any workflow (e.g., campaign search, brand kit, credit balance)</li>
+                <li><strong>Contextual Tools</strong> are dynamically selected based on the user's query using cosine similarity against tool descriptions</li>
+                <li><strong>Dependency Tools</strong> are automatically included when a selected tool requires another to complete its workflow</li>
+                <li><strong>Denied Tools</strong> (36 tools) are permanently excluded from selection for security or controlled-rollout reasons</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. SIX-PHASE WORKFLOW -->
+          <div class="kb-section" id="six-phase-workflow">
+            <div class="kb-section-label">Section 3</div>
+            <h2>The Six-Phase Workflow</h2>
+            <p>When a user requests a campaign, Pixel follows a strictly sequential six-phase workflow. Each phase must complete before the next begins.</p>
+
+            <div class="phase-card">
+              <div class="phase-number">01</div>
+              <h3>Planning</h3>
+              <p>Pixel presents a strategic plan with recommended channels, targeting approach, and creative direction.</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Step</th><th>What Pixel Does</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Credit check</strong></td><td>Validates the user has sufficient credits to proceed</td></tr>
+                    <tr><td><strong>Market research</strong></td><td>Searches the web for industry trends, competitor strategies, and channel best practices</td></tr>
+                    <tr><td><strong>Channel analysis</strong></td><td>Compares channel performance (LinkedIn vs Facebook vs Google vs Instagram) using historical benchmarks</td></tr>
+                    <tr><td><strong>Brand discovery</strong></td><td>Retrieves or generates the company's Brand Kit (colors, fonts, logo, messaging framework)</td></tr>
+                    <tr><td><strong>Targeting analysis</strong></td><td>Analyzes historical targeting patterns (industry x seniority x job function) for lead optimization</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="phase-card">
+              <div class="phase-number">02</div>
+              <h3>Audience Building</h3>
+              <p>Identifies optimal industries, job titles, seniority levels, geographic locations and creates audiences.</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Step</th><th>What Pixel Does</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Research criteria</strong></td><td>Identifies optimal industries, job titles, seniority levels, geographic locations</td></tr>
+                    <tr><td><strong>Create audiences</strong></td><td>Builds one or more audiences (firmographic, technographic, or native channel audiences)</td></tr>
+                    <tr><td><strong>Validate sizing</strong></td><td>Confirms audience sizes are viable for campaign delivery</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="kb-callout" style="margin-top:16px;">
+                <strong>Supported Audience Types:</strong> Firmographic (company attributes), Technographic (technology stack), LinkedIn Native Criteria (job titles, skills, company names), Facebook Native Criteria (demographics, interests, job titles)
+              </div>
+            </div>
+
+            <div class="phase-card">
+              <div class="phase-number">03</div>
+              <h3>Offer Creation</h3>
+              <p>Builds Lead Gen forms or Landing Page offers per channel.</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Step</th><th>What Pixel Does</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Privacy URL validation</strong></td><td>Finds and validates the company's privacy policy URL (required by ad channels)</td></tr>
+                    <tr><td><strong>Offer research</strong></td><td>Analyzes historical offer performance patterns</td></tr>
+                    <tr><td><strong>Create offers</strong></td><td>Builds Lead Gen forms or Landing Page offers per channel</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="kb-callout kb-callout-warning" style="margin-top:16px;">
+                <strong>Business Rule:</strong> Lead Gen campaigns can ONLY use Lead Gen offers. Brand Awareness campaigns accept both types.
+              </div>
+            </div>
+
+            <div class="phase-card">
+              <div class="phase-number">04</div>
+              <h3>Creative & Ad Production</h3>
+              <p>Generates branded ad images, uploads them, and creates ads with channel-specific copy.</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Step</th><th>What Pixel Does</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Ad copy research</strong></td><td>Analyzes historical ad performance for optimal copy patterns</td></tr>
+                    <tr><td><strong>Creative generation</strong></td><td>Generates branded ad images using AI + company Brand DNA</td></tr>
+                    <tr><td><strong>Image upload</strong></td><td>Uploads generated images to the Metadata creative library</td></tr>
+                    <tr><td><strong>Ad creation</strong></td><td>Creates ads with channel-specific copy, headlines, descriptions, and CTAs</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="phase-card">
+              <div class="phase-number">05</div>
+              <h3>Campaign Assembly</h3>
+              <p>Assembles all components into a campaign with budget allocation.</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Step</th><th>What Pixel Does</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Budget group creation</strong></td><td>Creates a budget group with the specified allocation and spending strategy</td></tr>
+                    <tr><td><strong>Campaign creation</strong></td><td>Assembles all components (channels, audiences, offers, ads, budget) into a campaign</td></tr>
+                    <tr><td><strong>Configuration display</strong></td><td>Shows the complete campaign configuration in the UI for user review</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="kb-callout" style="margin-top:16px;">
+                <strong>Business Rules:</strong> Campaign start date is always today (not a future date). Default campaign duration: 90 days. Budget group end date must extend beyond campaign end date.
+              </div>
+            </div>
+
+            <div class="phase-card">
+              <div class="phase-number">06</div>
+              <h3>Launch Presentation</h3>
+              <p>The user reviews and decides when to go live.</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Step</th><th>What Pixel Does</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Campaign display</strong></td><td>Renders the full campaign card in the chat UI</td></tr>
+                    <tr><td><strong>User review</strong></td><td>User can edit dates, budget, channels, and review all components</td></tr>
+                    <tr><td><strong>User-initiated launch</strong></td><td>The user clicks the Launch button &mdash; Pixel never launches campaigns autonomously</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="kb-callout kb-callout-warning" style="margin-top:16px;">
+                <strong>Key Safety Principle:</strong> Campaign launching is always a human action. Pixel builds and configures; the user decides when to go live.
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. CHANNELS -->
+          <div class="kb-section" id="channels">
+            <div class="kb-section-label">Section 4</div>
+            <h2>Supported Advertising Channels</h2>
+            <p>Pixel supports multi-channel campaign orchestration across all major advertising platforms.</p>
+
+            <div class="kb-table-wrap">
+              <table class="kb-table">
+                <thead><tr><th>Channel</th><th>Ad Formats</th><th>Audience Types</th><th>Offer Types</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>LinkedIn</strong></td><td>Image ads, text ads</td><td>Firmographic, Technographic, LinkedIn Native Criteria</td><td>Lead Gen Forms, Landing Pages</td></tr>
+                  <tr><td><strong>Facebook</strong></td><td>Image ads</td><td>Firmographic, Technographic, Facebook Native Criteria</td><td>Lead Gen Forms, Landing Pages</td></tr>
+                  <tr><td><strong>Instagram</strong></td><td>Image ads</td><td>Firmographic, Technographic, Facebook Native Criteria</td><td>Lead Gen Forms, Landing Pages</td></tr>
+                  <tr><td><strong>Google Ads</strong></td><td>Text ads (headlines + descriptions)</td><td>Keyword-based targeting</td><td>Landing Pages</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 5. TOOLS -->
+          <div class="kb-section" id="tools">
+            <div class="kb-section-label">Section 5</div>
+            <h2>Complete Tool Inventory</h2>
+            <p>Pixel has access to 54 platform tools (via MCP server) plus 5 built-in local tools, for a total of 59 tools organized across 11 categories.</p>
+
+            <!-- 5.1 Campaign Management -->
+            <div class="kb-subsection">
+              <h3>Campaign Management <span class="tool-badge">9 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>create_campaign</code></td><td>Create multi-channel advertising campaigns across LinkedIn, Facebook, Instagram, and Google Ads</td><td>Phase 5: assembling all components</td></tr>
+                    <tr><td><code>get_campaign_by_wizard_id</code></td><td>Retrieve full campaign details by ID</td><td>Phase 6: displaying for review <span class="tool-badge core">Core</span></td></tr>
+                    <tr><td><code>search_campaigns_by_names</code></td><td>Search for existing campaigns by name (partial, case-insensitive)</td><td>Checking if campaign exists <span class="tool-badge core">Core</span></td></tr>
+                    <tr><td><code>manage_campaign</code></td><td>Pause or restart an active campaign</td><td>When user requests to pause/resume</td></tr>
+                    <tr><td><code>add_and_edit_campaign_elements</code></td><td>Add new or edit existing audiences, ads, offers, and keywords</td><td>Post-launch modifications</td></tr>
+                    <tr><td><code>remove_channels_from_campaign</code></td><td>Disable one or more channels from a campaign</td><td>When user wants to stop on specific channels</td></tr>
+                    <tr><td><code>remove_audiences_from_campaign</code></td><td>Remove specific audiences from campaign channels</td><td>Refining campaign targeting</td></tr>
+                    <tr><td><code>remove_leadgen_offer_from_campaign</code></td><td>Remove lead gen offers from campaign channels</td><td>Swapping or removing offers</td></tr>
+                    <tr><td><code>remove_ad_from_campaign</code></td><td>Remove specific ads from campaign channels</td><td>Ad rotation or creative refresh</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.2 Budget Management -->
+            <div class="kb-subsection">
+              <h3>Budget Management <span class="tool-badge">4 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>create_budget_group</code></td><td>Create or update budget allocation with spending strategy</td><td>Phase 5: setting up campaign budget</td></tr>
+                    <tr><td><code>get_budget_group</code></td><td>Retrieve configuration for a specific budget group</td><td>Viewing budget details</td></tr>
+                    <tr><td><code>list_budget_groups</code></td><td>Browse all available budget groups</td><td>Checking existing budgets <span class="tool-badge core">Core</span></td></tr>
+                    <tr><td><code>budget_group_performance</code></td><td>Get performance statistics for a budget group</td><td>Analyzing budget utilization and ROI</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.3 Audience Targeting -->
+            <div class="kb-subsection">
+              <h3>Audience Targeting <span class="tool-badge">10 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>create_firmographic_audience</code></td><td>Create B2B audiences based on company attributes and contact criteria</td><td>Phase 2: default and most common</td></tr>
+                    <tr><td><code>create_technographic_audience</code></td><td>Create audiences based on technology stack and software usage</td><td>Phase 2: when targeting by tech stack</td></tr>
+                    <tr><td><code>create_linkedin_native_criteria_audience</code></td><td>Create LinkedIn-specific audiences (job titles, skills, company names)</td><td>Phase 2: LinkedIn campaigns</td></tr>
+                    <tr><td><code>create_facebook_native_criteria_audience</code></td><td>Create Facebook-specific audiences (demographics, interests)</td><td>Phase 2: Facebook/Instagram campaigns</td></tr>
+                    <tr><td><code>get_matched_audiences</code></td><td>Retrieve custom audiences from Campaign Wizard</td><td>Finding existing audiences</td></tr>
+                    <tr><td><code>get_audience_details</code></td><td>Get audience information with criteria and configuration</td><td>Reviewing audience setup</td></tr>
+                    <tr><td><code>get_deep_audience_details</code></td><td>Get complete detailed information including full targeting criteria</td><td>Deep inspection</td></tr>
+                    <tr><td><code>add_exclusion_audiences_to_campaign</code></td><td>Add exclusion audiences to prevent overlap</td><td>Negative targeting</td></tr>
+                    <tr><td><code>archive_audience</code></td><td>Archive/remove a custom audience</td><td>Cleaning up unused audiences</td></tr>
+                    <tr><td><code>unarchive_audience</code></td><td>Restore a previously archived audience</td><td>Reactivating audiences</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.4 Offer Management -->
+            <div class="kb-subsection">
+              <h3>Offer Management <span class="tool-badge">3 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>create_update_offer</code></td><td>Create or update Lead Gen forms or Landing Page offers</td><td>Phase 3: creating offers <span class="tool-badge core">Core</span></td></tr>
+                    <tr><td><code>get_offer</code></td><td>Retrieve offer information by name or list all offers</td><td>Checking existing offers</td></tr>
+                    <tr><td><code>find_privacy_url</code></td><td>Locate the privacy policy URL for a website domain</td><td>Phase 3: mandatory validation <span class="tool-badge core">Core</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.5 Creative & Brand -->
+            <div class="kb-subsection">
+              <h3>Creative & Brand <span class="tool-badge">9 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>generate_brand_kit</code></td><td>Analyze a company's website and extract brand identity</td><td>Phase 1: brand discovery</td></tr>
+                    <tr><td><code>get_brand_kit</code></td><td>Retrieve current brand kit configuration</td><td>Phase 1: checking existing brand <span class="tool-badge core">Core</span></td></tr>
+                    <tr><td><code>update_brand_kit</code></td><td>Update brand kit parameters (colors, fonts, messaging)</td><td>Refining brand identity</td></tr>
+                    <tr><td><code>generate_brand_creative</code></td><td>Generate branded ad images using AI + Brand DNA</td><td>Phase 4: creating ad visuals <span class="tool-badge core">Core</span></td></tr>
+                    <tr><td><code>generate_brand_creative_canvas</code></td><td>Generate editable canvas-based creatives (Fabric.js)</td><td>Phase 4: customizable ad visuals</td></tr>
+                    <tr><td><code>edit_brand_creative</code></td><td>Edit existing creative image while preserving brand consistency</td><td>Post-creation refinement</td></tr>
+                    <tr><td><code>upload_image_creative</code></td><td>Upload images to Metadata platform library</td><td>Phase 4: converting to platform assets</td></tr>
+                    <tr><td><code>search_library_images_by_name</code></td><td>Search the creative library for existing images</td><td>Finding reusable assets</td></tr>
+                    <tr><td><code>fetch_creative_details</code></td><td>Get detailed information for specific creative assets</td><td>Inspecting creative specifications</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.6 Ad Management -->
+            <div class="kb-subsection">
+              <h3>Ad Management <span class="tool-badge">4 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>create_update_ads</code></td><td>Create or update ad copy with images for LinkedIn, Facebook, Instagram, Google</td><td>Phase 4: creating ads <span class="tool-badge core">Core</span></td></tr>
+                    <tr><td><code>create_update_google_ads_ad</code></td><td>Create or update Google Ads text ads (headlines + descriptions)</td><td>Phase 4: Google-specific text ads</td></tr>
+                    <tr><td><code>search_ads_by_names</code></td><td>Search for existing ads by name</td><td>Checking if ads already exist</td></tr>
+                    <tr><td><code>get_ad_details</code></td><td>Get complete details for one or more ads</td><td>Reviewing ad configuration</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.7 Keyword Management -->
+            <div class="kb-subsection">
+              <h3>Keyword Management <span class="tool-badge">7 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>create_keywords</code></td><td>Batch create positive keywords in the library</td><td>Google Ads keyword setup</td></tr>
+                    <tr><td><code>list_keywords</code></td><td>List and search keywords with filtering</td><td>Reviewing existing keywords</td></tr>
+                    <tr><td><code>create_negative_keywords_list</code></td><td>Create negative keyword lists for Google Ads</td><td>Preventing irrelevant placements</td></tr>
+                    <tr><td><code>list_negative_keywords_list</code></td><td>List existing negative keyword lists</td><td>Reviewing negative keywords</td></tr>
+                    <tr><td><code>list_experiment_keywords</code></td><td>Search keywords running in experiments</td><td>Monitoring keyword performance</td></tr>
+                    <tr><td><code>pause_experiment_keyword</code></td><td>Pause a keyword in an experiment</td><td>Stopping underperforming keywords</td></tr>
+                    <tr><td><code>restart_experiment_keyword</code></td><td>Restart a paused keyword</td><td>Reactivating keywords</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.8 Analytics -->
+            <div class="kb-subsection">
+              <h3>Analytics & Performance <span class="tool-badge">3 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>account_level_stats</code></td><td>Account-level statistics and channel breakdown (impressions, clicks, spend, leads, MQLs, ROI)</td><td>Overall account performance</td></tr>
+                    <tr><td><code>performance_metrics</code></td><td>Granular performance metrics for ads, audiences, creatives, offers, and keywords</td><td>Deep-dive analysis</td></tr>
+                    <tr><td><code>experiments_keywords_stats</code></td><td>Keyword performance data from active experiments</td><td>Keyword-level results</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.9 Integrations -->
+            <div class="kb-subsection">
+              <h3>Integrations & Account <span class="tool-badge">5 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>get_integrations_status</code></td><td>Comprehensive connection status for all channels and martech platforms</td><td>Phase 1: checking connections <span class="tool-badge core">Core</span></td></tr>
+                    <tr><td><code>connect_channel</code></td><td>Get OAuth URL to connect an advertising channel</td><td>When a required channel is not connected</td></tr>
+                    <tr><td><code>disconnect_channel</code></td><td>Disconnect a specific advertising channel</td><td>When user wants to remove a connection</td></tr>
+                    <tr><td><code>connect_crm</code></td><td>Get OAuth URL to connect a CRM (Salesforce, HubSpot)</td><td>When CRM integration is needed</td></tr>
+                    <tr><td><code>get_account_details</code></td><td>Get current user and account information</td><td>Checking account configuration</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.10 Credits -->
+            <div class="kb-subsection">
+              <h3>Credit Management <span class="tool-badge">1 tool</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>get_credit_balance</code></td><td>Get current Pixel AI credit balance and consumption status</td><td>Phase 1: mandatory credit check <span class="tool-badge core">Core</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 5.11 Built-in Local Tools -->
+            <div class="kb-subsection">
+              <h3>Built-in Local Tools <span class="tool-badge">5 tools</span></h3>
+              <p>These tools are built directly into the Pixel agent and do not go through the MCP server:</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Description</th><th>When Used</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>search_web</code></td><td>Real-time web search via Tavily API</td><td>Phase 1: market research, competitor analysis</td></tr>
+                    <tr><td><code>compare_channels</code></td><td>Performance benchmarking across LinkedIn, Facebook, Instagram, Google</td><td>Phase 1: recommending channels</td></tr>
+                    <tr><td><code>get_channel_recommendations</code></td><td>Channel-specific benchmarks, audience types, creative formats, historical pipeline data</td><td>Phase 1: data-driven channel selection</td></tr>
+                    <tr><td><code>get_targeting_recommendations</code></td><td>Lead targeting patterns (industry x seniority x job function) with lead count distribution</td><td>Phase 1 & 2: optimizing targeting</td></tr>
+                    <tr><td><code>get_current_date</code></td><td>Returns today's date</td><td>Phase 5: setting campaign start date</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. AUDIENCES -->
+          <div class="kb-section" id="audiences">
+            <div class="kb-section-label">Section 6</div>
+            <h2>Audience Targeting Capabilities</h2>
+            <p>Pixel supports multiple audience types for precise B2B targeting across all supported channels.</p>
+
+            <div class="kb-subsection">
+              <h3>Available Audience Types</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Audience Type</th><th>What It Targets</th><th>Key Criteria</th><th>Best For</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Firmographic</strong></td><td>Company attributes + contact role</td><td>Industry, employee count, revenue, job titles, job functions, seniority, location</td><td>Default B2B targeting &mdash; most commonly used</td></tr>
+                    <tr><td><strong>Technographic</strong></td><td>Technology stack usage</td><td>Specific technologies/software used by companies + optional firmographic filters</td><td>Targeting users of competitor or complementary products</td></tr>
+                    <tr><td><strong>LinkedIn Native</strong></td><td>LinkedIn-specific criteria</td><td>Job titles, skills, company names, employee count, revenue, location</td><td>LinkedIn campaigns requiring platform-native targeting</td></tr>
+                    <tr><td><strong>Facebook Native</strong></td><td>Facebook-specific criteria</td><td>Age (21-65), industries, countries, job titles, interests</td><td>Facebook/Instagram campaigns with demographic targeting</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Audience Management Actions</h3>
+              <ul class="kb-list">
+                <li><strong>Create</strong> new audiences with detailed targeting criteria</li>
+                <li><strong>View</strong> existing audiences with full criteria details</li>
+                <li><strong>Add</strong> audiences to campaigns (including across multiple channels)</li>
+                <li><strong>Exclude</strong> audiences from campaigns (negative targeting)</li>
+                <li><strong>Archive</strong> unused audiences to keep the library clean</li>
+                <li><strong>Unarchive</strong> previously archived audiences for reuse</li>
+              </ul>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Audience Types Not Currently Available via Pixel</h3>
+              <p>The following audience types exist on the Metadata platform but are temporarily disabled for Pixel:</p>
+              <ul class="kb-list">
+                <li>Bombora Buyer Intent audiences (intent topic-based targeting)</li>
+                <li>G2 Dynamic audiences (buying stage-based targeting)</li>
+                <li>Retargeting audiences (website visitors, channel retargeting)</li>
+                <li>ABM Account Lists (account-based marketing lists)</li>
+                <li>Target Groups (LinkedIn native target groups with advanced criteria)</li>
+                <li>Segment-based audiences (insights-derived retargeting)</li>
+              </ul>
+              <div class="kb-callout">These are planned for future enablement as the tool set is progressively expanded.</div>
+            </div>
+          </div>
+
+          <!-- 7. CREATIVE & BRAND -->
+          <div class="kb-section" id="creative">
+            <div class="kb-section-label">Section 7</div>
+            <h2>Creative & Brand Management</h2>
+            <p>Pixel can automatically analyze any company's website and extract a complete Brand DNA, then use it to generate consistent ad creatives.</p>
+
+            <div class="kb-subsection">
+              <h3>Brand Kit System</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Component</th><th>What It Includes</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Colors</strong></td><td>Primary, secondary, and accent colors from the brand palette</td></tr>
+                    <tr><td><strong>Typography</strong></td><td>Font families, weights, and styles</td></tr>
+                    <tr><td><strong>Logo</strong></td><td>Company logo extracted from the website</td></tr>
+                    <tr><td><strong>Messaging Framework</strong></td><td>Brand voice, value propositions, and key messaging themes</td></tr>
+                    <tr><td><strong>Industry Context</strong></td><td>Industry classification for contextual creative generation</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="kb-callout">Brand Kits are generated once and reused across all campaigns, ensuring consistent brand presentation.</div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>AI Creative Generation</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Feature</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Brand-Consistent Images</strong></td><td>Generated images use the company's colors, fonts, and visual style</td></tr>
+                    <tr><td><strong>Platform-Optimized</strong></td><td>Creatives are sized for the target platform (LinkedIn, Facebook, Instagram)</td></tr>
+                    <tr><td><strong>Editable Canvas</strong></td><td>Canvas-based creatives can be edited in the UI (text, colors, positioning)</td></tr>
+                    <tr><td><strong>Creative Editing</strong></td><td>Existing images can be modified while preserving brand consistency</td></tr>
+                    <tr><td><strong>Library Integration</strong></td><td>All creatives are uploaded to the Metadata platform library for reuse</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Creative Workflow</h3>
+              <div class="kb-cards">
+                <div class="kb-card">
+                  <h4>1. Brand Kit</h4>
+                  <p>Retrieved or generated from company website</p>
+                </div>
+                <div class="kb-card">
+                  <h4>2. Generate Creative</h4>
+                  <p>AI creates branded ad image using Brand DNA</p>
+                </div>
+                <div class="kb-card">
+                  <h4>3. Upload to Library</h4>
+                  <p>Image gets a platform creativeID</p>
+                </div>
+                <div class="kb-card">
+                  <h4>4. Create Ad</h4>
+                  <p>Ad references the creativeID with channel-specific copy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. CAMPAIGNS -->
+          <div class="kb-section" id="campaigns">
+            <div class="kb-section-label">Section 8</div>
+            <h2>Campaign Management</h2>
+            <p>Pixel provides complete campaign lifecycle management from creation to optimization.</p>
+
+            <div class="kb-subsection">
+              <h3>What Pixel Can Create</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Element</th><th>Details</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Multi-channel campaigns</strong></td><td>Single campaign spanning LinkedIn, Facebook, Instagram, and/or Google Ads</td></tr>
+                    <tr><td><strong>Budget groups</strong></td><td>Fixed budget or monthly-reset spending allocation</td></tr>
+                    <tr><td><strong>Channel-specific ads</strong></td><td>Different headlines, descriptions, and CTAs per channel</td></tr>
+                    <tr><td><strong>Audience assignments</strong></td><td>Multiple audiences per channel</td></tr>
+                    <tr><td><strong>Offer assignments</strong></td><td>Lead Gen forms (channel-specific) or Landing Pages (cross-channel)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Campaign Lifecycle Actions</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Action</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Create</strong></td><td>Build a complete campaign from scratch through the 6-phase workflow</td></tr>
+                    <tr><td><strong>View</strong></td><td>Display full campaign configuration with all components</td></tr>
+                    <tr><td><strong>Edit</strong></td><td>Modify campaign elements (add/remove audiences, ads, offers, channels)</td></tr>
+                    <tr><td><strong>Pause</strong></td><td>Temporarily stop a running campaign</td></tr>
+                    <tr><td><strong>Restart</strong></td><td>Resume a paused campaign</td></tr>
+                    <tr><td><strong>Launch</strong></td><td>User-initiated only &mdash; Pixel presents the campaign; the user clicks Launch</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Campaign Types</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Type</th><th>Description</th><th>Offer Constraint</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Lead Generation</strong></td><td>Campaigns focused on capturing leads through forms</td><td>Must use Lead Gen offers only</td></tr>
+                    <tr><td><strong>Brand Awareness</strong></td><td>Campaigns focused on impressions and reach</td><td>Can use Lead Gen or Landing Page offers</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. OFFERS -->
+          <div class="kb-section" id="offers">
+            <div class="kb-section-label">Section 9</div>
+            <h2>Offer Management</h2>
+            <p>Pixel supports two types of offers for campaign conversion.</p>
+
+            <div class="kb-table-wrap">
+              <table class="kb-table">
+                <thead><tr><th>Type</th><th>Description</th><th>Channel Scope</th><th>Use Case</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Lead Gen</strong></td><td>In-platform lead capture forms with custom fields and thank-you messages</td><td>One per channel (LinkedIn, Facebook, Instagram)</td><td>Direct lead capture without leaving the ad platform</td></tr>
+                  <tr><td><strong>Landing Page</strong></td><td>Redirect to an external URL (website, landing page)</td><td>One reusable across all channels</td><td>Driving traffic to website content or custom pages</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="kb-callout kb-callout-warning">
+              <strong>Privacy Policy Requirement:</strong> Before creating any offer, Pixel must find and validate the company's privacy policy URL. This is required by all advertising platforms and is automatically handled in Phase 3 of the workflow.
+            </div>
+          </div>
+
+          <!-- 10. KEYWORDS -->
+          <div class="kb-section" id="keywords">
+            <div class="kb-section-label">Section 10</div>
+            <h2>Keyword Management (Google Ads)</h2>
+            <p>Pixel provides full keyword management for Google Ads campaigns.</p>
+
+            <div class="kb-table-wrap">
+              <table class="kb-table">
+                <thead><tr><th>Capability</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Create keywords</strong></td><td>Batch create positive keywords with search volume and bid data</td></tr>
+                  <tr><td><strong>Negative keyword lists</strong></td><td>Create lists to prevent ads from showing on irrelevant searches (EXACT, PHRASE, or BROAD match)</td></tr>
+                  <tr><td><strong>Experiment keywords</strong></td><td>Monitor and manage keywords running in active experiments</td></tr>
+                  <tr><td><strong>Pause/Restart keywords</strong></td><td>Control individual keyword activity within experiments</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 11. ANALYTICS -->
+          <div class="kb-section" id="analytics">
+            <div class="kb-section-label">Section 11</div>
+            <h2>Analytics & Performance Reporting</h2>
+            <p>Pixel provides multiple levels of performance analytics to help marketers understand and optimize their campaigns.</p>
+
+            <div class="kb-subsection">
+              <h3>Available Analytics</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Report</th><th>Scope</th><th>Key Metrics</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Account-Level Stats</strong></td><td>Full account across all channels</td><td>Impressions, clicks, spend, leads, MQLs, ROI, by timeframe (week/quarter/year)</td></tr>
+                    <tr><td><strong>Performance Metrics</strong></td><td>Granular per ads, audiences, creatives, offers, keywords</td><td>Spend, leads, conversions, CPL, CTR, ROI</td></tr>
+                    <tr><td><strong>Budget Group Performance</strong></td><td>Per budget group with experiment breakdown</td><td>Experiment-level metrics, budget utilization</td></tr>
+                    <tr><td><strong>Keyword Stats</strong></td><td>Active experiment keywords</td><td>Keyword-level performance metrics</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Analytics Currently Disabled for Pixel</h3>
+              <p>The following deeper analytics exist on the platform but are not yet available through Pixel:</p>
+              <ul class="kb-list">
+                <li>Account funnel reports (reached &rarr; engaged &rarr; converted &rarr; MQL &rarr; opportunities &rarr; won)</li>
+                <li>Demographic/country-level stats</li>
+                <li>Website engagement stats (sessions, visitors, page views, bounce rate)</li>
+                <li>Deep funnel conversion analysis with ROI attribution</li>
+                <li>Account-level insights with company journey timelines</li>
+                <li>Experiment performance deep-dives</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 12. INTEGRATIONS -->
+          <div class="kb-section" id="integrations">
+            <div class="kb-section-label">Section 12</div>
+            <h2>Integrations & Channel Connections</h2>
+            <p>Pixel can check connection status and initiate OAuth flows for advertising channels, CRMs, and martech platforms.</p>
+
+            <div class="kb-subsection">
+              <h3>Advertising Channels</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Channel</th><th>OAuth Provider</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>LinkedIn</strong></td><td>LinkedIn Campaign Manager</td></tr>
+                    <tr><td><strong>Meta (Facebook + Instagram)</strong></td><td>Meta Ads Manager</td></tr>
+                    <tr><td><strong>Google Ads</strong></td><td>Google Ads</td></tr>
+                    <tr><td><strong>Reddit</strong></td><td>Reddit Ads</td></tr>
+                    <tr><td><strong>X (Twitter)</strong></td><td>X Ads</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>CRM Systems</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>CRM</th><th>Integration Type</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Salesforce</strong></td><td>OAuth connection for leads, opportunities, campaign membership</td></tr>
+                    <tr><td><strong>HubSpot</strong></td><td>OAuth connection for leads and contact management</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Martech Platforms (via Metadata Platform)</h3>
+              <p>The underlying Metadata platform supports additional integrations that Pixel workflows benefit from:</p>
+              <ul class="kb-list">
+                <li><strong>Marketing Automation:</strong> HubSpot, Marketo, Eloqua, Pardot</li>
+                <li><strong>Analytics:</strong> Google Analytics, Google Tag Manager</li>
+                <li><strong>Intent Data:</strong> Bombora (buyer intent topics), G2 (buying stages)</li>
+                <li><strong>Data Enrichment:</strong> DataNode (company and contact data)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 13. CREDITS -->
+          <div class="kb-section" id="credits">
+            <div class="kb-section-label">Section 13</div>
+            <h2>Credit System & Budget Controls</h2>
+            <p>Every Pixel conversation and campaign action consumes Pixel AI Credits, with multiple layers of budget protection.</p>
+
+            <div class="kb-subsection">
+              <h3>Pixel AI Credits</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Concept</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Credit Balance</strong></td><td>Each account has a credit plan with a total allocation</td></tr>
+                    <tr><td><strong>Consumption Events</strong></td><td>Actions like brand kit generation, creative generation, audience creation, campaign publishing, and lead enrichment each consume credits</td></tr>
+                    <tr><td><strong>Credit Check</strong></td><td>Pixel validates sufficient credits at the start of every workflow (Phase 1)</td></tr>
+                    <tr><td><strong>Credit Reporting</strong></td><td>Per-conversation credit consumption is tracked and reportable</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Budget Controls & Limits</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Control</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Contract Allocation</strong></td><td>Hard limit per billing cycle (quarterly, monthly, or annual)</td></tr>
+                    <tr><td><strong>Overage Percentage</strong></td><td>Configurable percentage above allocation that's permitted (e.g., 20% overage on $10K = $12K max)</td></tr>
+                    <tr><td><strong>Unlimited Overage Option</strong></td><td>Can be enabled per account to remove overage caps</td></tr>
+                    <tr><td><strong>Workspace Sharing</strong></td><td>Parent accounts hold limits; child accounts share the pool</td></tr>
+                    <tr><td><strong>Ad-Hoc Credits</strong></td><td>Prepaid top-up credits for additional capacity</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Auto-Pause Safeguard</h3>
+              <div class="kb-callout kb-callout-warning">
+                <strong>Critical Safety Feature:</strong> When campaign ad spend exceeds the account's contract allocation for the current month, all launched campaigns are automatically paused to prevent further spend. This is a binary safeguard &mdash; there is no gradual throttling. Campaigns remain paused until manually resumed after budget adjustment.
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Billing Models</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Model</th><th>Description</th><th>Example RUM Types</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Immediate</strong></td><td>Charged as soon as consumed</td><td>Pixel AI credits (creative generation, audience creation)</td></tr>
+                    <tr><td><strong>Batch/Cron</strong></td><td>Aggregated and billed during scheduled cycles</td><td>Ad spend, campaign management fees</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 14. USER EXPERIENCE -->
+          <div class="kb-section" id="ux">
+            <div class="kb-section-label">Section 14</div>
+            <h2>User Experience</h2>
+            <p>Pixel provides a rich, interactive chat-based experience with real-time streaming and interactive components.</p>
+
+            <div class="kb-subsection">
+              <h3>Conversation Flow</h3>
+              <div class="kb-cards">
+                <div class="kb-card">
+                  <h4>1. User types a message</h4>
+                  <p>Describe your marketing goal in natural language</p>
+                </div>
+                <div class="kb-card">
+                  <h4>2. Planning begins</h4>
+                  <p>Pixel shows animated "Thinking..." cards for each sub-step</p>
+                </div>
+                <div class="kb-card">
+                  <h4>3. Progressive rendering</h4>
+                  <p>As each component completes, it appears as an interactive card</p>
+                </div>
+                <div class="kb-card">
+                  <h4>4. Campaign card</h4>
+                  <p>Full campaign with channels, audiences, ads, offers, and budget</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Interactive Components</h3>
+              <p>The UI renders 14+ component types as rich, interactive cards:</p>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Component</th><th>What Users See</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Campaign Card</strong></td><td>Full campaign summary with launch button, editable dates/budget, channel breakdown</td></tr>
+                    <tr><td><strong>Audience Card</strong></td><td>Targeting criteria, audience size estimate, preview modal</td></tr>
+                    <tr><td><strong>Ad Preview</strong></td><td>Image preview with headline, body copy, CTA, sharing capability</td></tr>
+                    <tr><td><strong>Brand Kit</strong></td><td>Logo, color palette, typography, messaging framework</td></tr>
+                    <tr><td><strong>Brand Creative</strong></td><td>AI-generated image with edit/export capabilities (Fabric.js editor)</td></tr>
+                    <tr><td><strong>Offer Details</strong></td><td>Form fields, thank-you page, privacy policy, landing page URL</td></tr>
+                    <tr><td><strong>Integration Prompt</strong></td><td>OAuth connection dialog when a channel needs connecting</td></tr>
+                    <tr><td><strong>Budget Group</strong></td><td>Budget allocation details and campaign assignments</td></tr>
+                    <tr><td><strong>Keyword Group</strong></td><td>Keyword lists with search volume and bid data</td></tr>
+                    <tr><td><strong>Optimization Log</strong></td><td>Campaign optimizer decisions and performance changes</td></tr>
+                    <tr><td><strong>Experiment Status</strong></td><td>Live experiment metrics and status changes</td></tr>
+                    <tr><td><strong>Campaign Lead</strong></td><td>Lead notification with contact and company details</td></tr>
+                    <tr><td><strong>Google Ads</strong></td><td>Text ad preview with headlines and descriptions</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Key UI Features</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Feature</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Real-time streaming</strong></td><td>Messages appear progressively as Pixel works (1-second polling)</td></tr>
+                    <tr><td><strong>File uploads</strong></td><td>Users can upload images for creative assets</td></tr>
+                    <tr><td><strong>Channel connectors</strong></td><td>In-chat OAuth flows to connect advertising channels</td></tr>
+                    <tr><td><strong>Creative editor</strong></td><td>Visual editor for canvas-based creatives (text, colors, positioning)</td></tr>
+                    <tr><td><strong>Ad sharing</strong></td><td>Copy shareable links for individual ads</td></tr>
+                    <tr><td><strong>Conversation history</strong></td><td>Browse and continue past conversations</td></tr>
+                    <tr><td><strong>Quick actions</strong></td><td>Template-based shortcuts for common workflows</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15. SAFETY -->
+          <div class="kb-section" id="safety">
+            <div class="kb-section-label">Section 15</div>
+            <h2>Safety Controls & Guardrails</h2>
+            <p>Pixel is built with multiple layers of safety controls to protect users and prevent unintended actions.</p>
+
+            <div class="kb-subsection">
+              <h3>Operational Safeguards</h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Safeguard</th><th>Description</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Human-in-the-loop launching</strong></td><td>Pixel never launches campaigns autonomously; the user must click Launch</td></tr>
+                    <tr><td><strong>Credit validation</strong></td><td>Credit balance is checked before starting any workflow</td></tr>
+                    <tr><td><strong>Auto-pause</strong></td><td>Campaigns are automatically paused when ad spend exceeds budget allocation</td></tr>
+                    <tr><td><strong>Asset naming convention</strong></td><td>All created assets include a 4-character UUID suffix to prevent naming conflicts</td></tr>
+                    <tr><td><strong>Privacy URL validation</strong></td><td>Privacy policy URLs are validated before offer creation</td></tr>
+                    <tr><td><strong>Duplicate prevention</strong></td><td>Pixel tracks the last 10 tool calls to prevent repeating identical actions</td></tr>
+                    <tr><td><strong>Loop detection</strong></td><td>If 3+ identical tool calls are detected in a 10-call window, Pixel stops and explains the issue</td></tr>
+                    <tr><td><strong>Tool call limit</strong></td><td>Maximum 15 tool calls per response to prevent runaway execution</td></tr>
+                    <tr><td><strong>Recursion limit</strong></td><td>Maximum 50 reasoning steps per conversation turn</td></tr>
+                    <tr><td><strong>Graceful stop</strong></td><td>Users can stop Pixel mid-execution; it completes the current step and returns status</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Tool Access Control</h3>
+              <ul class="kb-list">
+                <li><strong>36 tools are permanently denied</strong> &mdash; including account impersonation, advanced insights, and campaign launching</li>
+                <li><strong>10 core tools are always available</strong> &mdash; essential tools for any workflow</li>
+                <li><strong>Remaining tools are dynamically selected</strong> &mdash; based on semantic relevance to the user's query</li>
+                <li><strong>Tool dependencies are enforced</strong> &mdash; when a tool is selected, its required companion tools are automatically included</li>
+              </ul>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Communication Standards</h3>
+              <ul class="kb-list">
+                <li>Business-appropriate language only (no slang, emoji, or casual tone)</li>
+                <li>Internal IDs are never exposed to users (only user-friendly names)</li>
+                <li>Pixel describes WHAT was created, not HOW (no implementation details in user-facing messages)</li>
+                <li>Next steps are always explained clearly</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 16. DISABLED TOOLS -->
+          <div class="kb-section" id="disabled-tools">
+            <div class="kb-section-label">Section 16</div>
+            <h2>Tools Currently Disabled</h2>
+            <p>The following tools exist on the MCP server but are intentionally excluded from Pixel's tool set, organized by reason for exclusion.</p>
+
+            <div class="kb-subsection">
+              <h3>Security Controls <span class="tool-badge">3 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Reason</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>impersonate_account</code></td><td>Account impersonation is restricted to admin operations</td></tr>
+                    <tr><td><code>stop_impersonation</code></td><td>Paired with impersonate_account</td></tr>
+                    <tr><td><code>list_user_accounts</code></td><td>User account enumeration is restricted</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>UI-Controlled Actions <span class="tool-badge">1 tool</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Reason</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>launch_campaign</code></td><td>Campaign launching is handled by the UI &mdash; Pixel must not launch campaigns autonomously</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Insights & Segmentation <span class="tool-badge">10 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Reason</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>search_insights_criteria_fields</code></td><td>Advanced insights criteria not yet integrated</td></tr>
+                    <tr><td><code>list_segments</code></td><td>Segment management not yet integrated</td></tr>
+                    <tr><td><code>get_segment_criteria</code></td><td>Segment criteria retrieval not yet integrated</td></tr>
+                    <tr><td><code>get_account_summary_insights</code></td><td>Account-level insights not yet integrated</td></tr>
+                    <tr><td><code>get_account_timeline_insights</code></td><td>Account timeline not yet integrated</td></tr>
+                    <tr><td><code>get_insights_report</code></td><td>Insights reporting not yet integrated</td></tr>
+                    <tr><td><code>create_segment</code></td><td>Segment creation not yet integrated</td></tr>
+                    <tr><td><code>get_account_opportunities_insights</code></td><td>Opportunity insights not yet integrated</td></tr>
+                    <tr><td><code>get_account_conversions_insights</code></td><td>Conversion insights not yet integrated</td></tr>
+                    <tr><td><code>create_audience_from_segment</code></td><td>Segment-to-audience conversion not yet integrated</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Intent Data Audiences <span class="tool-badge">3 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Reason</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>get_intent_topics</code></td><td>Bombora intent topics temporarily disabled</td></tr>
+                    <tr><td><code>create_bombora_audience</code></td><td>Bombora audience creation temporarily disabled</td></tr>
+                    <tr><td><code>create_g2_metadata_dynamic_audience</code></td><td>G2 dynamic audience creation temporarily disabled</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Advanced Analytics <span class="tool-badge">8 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Reason</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>search_experiments</code></td><td>Experiment search temporarily disabled</td></tr>
+                    <tr><td><code>demographic_country_stats</code></td><td>Country-level stats temporarily disabled</td></tr>
+                    <tr><td><code>account_list_performance</code></td><td>Account list analytics temporarily disabled</td></tr>
+                    <tr><td><code>website_engagement_stats</code></td><td>Website engagement temporarily disabled</td></tr>
+                    <tr><td><code>deep_funnel_stats</code></td><td>Deep funnel analysis temporarily disabled</td></tr>
+                    <tr><td><code>account_funnel_reports</code></td><td>Funnel reporting temporarily disabled</td></tr>
+                    <tr><td><code>experiment_performance_stats</code></td><td>Experiment performance temporarily disabled</td></tr>
+                    <tr><td><code>update_experiments_daily_budgets</code></td><td>Budget updates temporarily disabled</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>Target Groups & Retargeting <span class="tool-badge">9 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Reason</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>list_target_groups</code></td><td>Target group management temporarily disabled</td></tr>
+                    <tr><td><code>retrieve_target_group_by_id</code></td><td>Target group retrieval temporarily disabled</td></tr>
+                    <tr><td><code>search_target_group_criteria</code></td><td>Target group criteria search temporarily disabled</td></tr>
+                    <tr><td><code>create_target_group</code></td><td>Target group creation temporarily disabled</td></tr>
+                    <tr><td><code>estimate_target_group</code></td><td>Target group estimation temporarily disabled</td></tr>
+                    <tr><td><code>update_target_group</code></td><td>Target group updates temporarily disabled</td></tr>
+                    <tr><td><code>create_retargeting_audience</code></td><td>Retargeting audience creation temporarily disabled</td></tr>
+                    <tr><td><code>get_retargeting_audiences</code></td><td>Retargeting audience retrieval temporarily disabled</td></tr>
+                    <tr><td><code>get_abm_account_lists</code></td><td>ABM account lists temporarily disabled</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="kb-subsection">
+              <h3>File Management <span class="tool-badge">2 tools</span></h3>
+              <div class="kb-table-wrap">
+                <table class="kb-table">
+                  <thead><tr><th>Tool</th><th>Reason</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>search_files</code></td><td>File search not yet integrated</td></tr>
+                    <tr><td><code>file_content</code></td><td>File content retrieval not yet integrated</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 17. GLOSSARY -->
+          <div class="kb-section" id="glossary">
+            <div class="kb-section-label">Section 17</div>
+            <h2>Glossary</h2>
+            <p>Key terms and definitions used throughout the Pixel documentation.</p>
+
+            <div class="kb-table-wrap">
+              <table class="kb-table">
+                <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Brand DNA</strong></td><td>A company's extracted brand identity including colors, fonts, logo, and messaging framework</td></tr>
+                  <tr><td><strong>Brand Kit</strong></td><td>The stored Brand DNA configuration for a company, generated from their website</td></tr>
+                  <tr><td><strong>Budget Group</strong></td><td>A spending allocation entity that controls how budget is distributed across experiments</td></tr>
+                  <tr><td><strong>Campaign Wizard</strong></td><td>The Metadata platform's campaign creation system that Pixel automates</td></tr>
+                  <tr><td><strong>Component</strong></td><td>A structured data object (Campaign, Ad, Audience, Offer, etc.) rendered as an interactive card in the UI</td></tr>
+                  <tr><td><strong>Core Tool</strong></td><td>A tool that is always available to Pixel regardless of the user's query</td></tr>
+                  <tr><td><strong>Creative</strong></td><td>An advertising image, video, or visual asset used in ads</td></tr>
+                  <tr><td><strong>CreativeID</strong></td><td>A platform-assigned integer ID for an uploaded creative asset</td></tr>
+                  <tr><td><strong>Denied Tool</strong></td><td>A tool that is permanently excluded from Pixel's tool set</td></tr>
+                  <tr><td><strong>Experiment</strong></td><td>A Metadata platform entity representing an individual ad group within a campaign</td></tr>
+                  <tr><td><strong>Firmographic</strong></td><td>Company attributes used for B2B targeting (industry, size, revenue)</td></tr>
+                  <tr><td><strong>Lead Gen</strong></td><td>An in-platform lead capture form (LinkedIn Lead Gen Forms, Facebook Lead Ads)</td></tr>
+                  <tr><td><strong>LangGraph</strong></td><td>The graph-based agent framework Pixel uses for multi-step reasoning</td></tr>
+                  <tr><td><strong>MCP</strong></td><td>Model Context Protocol &mdash; the protocol connecting Pixel's AI agent to the Metadata platform tools</td></tr>
+                  <tr><td><strong>MMR</strong></td><td>Maximal Marginal Relevance &mdash; the algorithm used to select relevant conversation context while maintaining diversity</td></tr>
+                  <tr><td><strong>MQL</strong></td><td>Marketing Qualified Lead &mdash; a lead that meets qualification criteria</td></tr>
+                  <tr><td><strong>Pixel AI Credits</strong></td><td>The consumption units that meter Pixel's usage per account</td></tr>
+                  <tr><td><strong>ReAct</strong></td><td>Reasoning + Acting &mdash; the agent pattern where Pixel thinks, acts, observes, and repeats</td></tr>
+                  <tr><td><strong>RUM</strong></td><td>Rateable Unit Metric &mdash; a tracked consumption metric type (e.g., AI_CREDIT, AD_SPENT)</td></tr>
+                  <tr><td><strong>SSE</strong></td><td>Server-Sent Events &mdash; the streaming protocol used to send real-time updates from Pixel to the UI</td></tr>
+                  <tr><td><strong>Target Group</strong></td><td>A LinkedIn-specific audience configuration with native criteria</td></tr>
+                  <tr><td><strong>Technographic</strong></td><td>Technology stack attributes used for targeting companies by their software usage</td></tr>
+                  <tr><td><strong>Workflow Phase</strong></td><td>One of the six sequential stages in Pixel's campaign creation process</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/pixel-flame.png" alt="Pixel" />
+          Pixel
+        </div>
+        <div class="footer-meta">&copy; 2026 Pixel. Powered by Metadata's patented technology.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      mobileMenuBtn.textContent = navLinks.classList.contains('open') ? '\u2715' : '\u2630';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileMenuBtn.textContent = '\u2630';
+      });
+    });
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Active sidebar tracking
+    const sidebarLinks = document.querySelectorAll('.kb-sidebar a');
+    const sections = document.querySelectorAll('.kb-section');
+    const sidebarObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sidebarLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.kb-sidebar a[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '-88px 0px -60% 0px' });
+    sections.forEach(section => sidebarObserver.observe(section));
+
+    // Search functionality
+    const searchInput = document.getElementById('kb-search-input');
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      sections.forEach(section => {
+        if (!query) {
+          section.style.display = '';
+          return;
+        }
+        const text = section.textContent.toLowerCase();
+        section.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

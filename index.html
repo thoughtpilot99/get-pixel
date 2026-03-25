@@ -968,6 +968,8 @@
       .stats-row { flex-direction: column; gap: 32px; }
       .stats-banner { padding: 48px 24px; }
       .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      #knowledge-base [style*="grid-template-columns: 1fr 1fr; gap: 56px"] { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center; }
+      #knowledge-base .section-sub { margin-left: auto; margin-right: auto; }
     }
 
     .mobile-menu-btn {
@@ -1170,6 +1172,7 @@
         <li><a href="#features" class="nav-link-text">Features</a></li>
         <li><a href="#how-it-works" class="nav-link-text">How It Works</a></li>
         <li><a href="#testimonials" class="nav-link-text">Testimonials</a></li>
+        <li><a href="knowledge-base.html" class="nav-link-text">Knowledge Base</a></li>
         <li><a href="#" class="nav-login">Log In</a></li>
         <li><a href="#" class="btn btn-primary nav-cta">Start Free &rarr;</a></li>
       </ul>
@@ -1436,6 +1439,49 @@
         <div class="platform-inline-card">
           <div class="platform-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
           <span>X / Twitter</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KNOWLEDGE BASE CTA -->
+  <section id="knowledge-base" style="padding: 80px 0; background: var(--bg);">
+    <div class="container">
+      <div style="background: linear-gradient(160deg, var(--bg-muted) 0%, var(--bg) 55%, var(--bg-warm) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 64px 48px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -40px; right: -40px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(255, 122, 0, 0.06) 0%, rgba(0, 234, 255, 0.04) 50%, transparent 70%); pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -40px; left: -40px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(72, 52, 209, 0.06) 0%, rgba(72, 121, 255, 0.04) 50%, transparent 70%); pointer-events: none;"></div>
+        <div style="position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+          <div>
+            <div class="section-label">
+              <svg viewBox="66 -1 36 50" width="16" height="16"><use href="#flame"/></svg>
+              Knowledge Base
+            </div>
+            <h2 class="section-heading" style="max-width: 480px;">Everything you need to know about Pixel</h2>
+            <p class="section-sub" style="margin-bottom: 32px;">Explore our comprehensive documentation covering workflows, audience targeting, creative generation, campaign management, analytics, integrations, and more.</p>
+            <a href="knowledge-base.html" class="btn btn-primary btn-large">Explore the Knowledge Base &rarr;</a>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: all 0.2s ease;">
+              <div style="font-size: 1.5rem; margin-bottom: 8px;">&#128640;</div>
+              <div style="font-size: 0.875rem; font-weight: 700; color: var(--text); margin-bottom: 4px;">6-Phase Workflow</div>
+              <div style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5;">Plan, build, and launch campaigns step by step</div>
+            </div>
+            <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: all 0.2s ease;">
+              <div style="font-size: 1.5rem; margin-bottom: 8px;">&#127919;</div>
+              <div style="font-size: 0.875rem; font-weight: 700; color: var(--text); margin-bottom: 4px;">Audience Targeting</div>
+              <div style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5;">Firmographic, technographic, and native criteria</div>
+            </div>
+            <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: all 0.2s ease;">
+              <div style="font-size: 1.5rem; margin-bottom: 8px;">&#127912;</div>
+              <div style="font-size: 0.875rem; font-weight: 700; color: var(--text); margin-bottom: 4px;">Creative & Brand</div>
+              <div style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5;">AI-powered brand kits and ad image generation</div>
+            </div>
+            <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: all 0.2s ease;">
+              <div style="font-size: 1.5rem; margin-bottom: 8px;">&#128200;</div>
+              <div style="font-size: 0.875rem; font-weight: 700; color: var(--text); margin-bottom: 4px;">Analytics & Reports</div>
+              <div style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5;">Account-level stats, ad performance, and ROI</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
